@@ -1,14 +1,23 @@
 {
   "name": "pulvis-site",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write"
   },
   "devDependencies": {
-    "vite": "^7.1.7"
+    "@eslint/js": "^8.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "globals": "^13.0.0",
+    "prettier": "^3.0.0",
+    "vite": "^4.0.0"
   }
 }

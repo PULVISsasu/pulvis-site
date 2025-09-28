@@ -1,6 +1,6 @@
-import './style.css';
+import "./style.css";
 
-document.querySelector('#app').innerHTML = `
+document.querySelector("#app").innerHTML = `
   <div class="container">
     <header class="nav">
       <a class="logo" href="/">PULVIS</a>
@@ -57,22 +57,26 @@ document.querySelector('#app').innerHTML = `
     </form>
     <p id="demo-ok" class="ok" hidden>Merci ! On revient vers vous très vite.</p>
   </section>
-`
-const form = document.getElementById('demo-form');
-const okMsg = document.createElement('p');
-okMsg.className = 'ok';
-okMsg.textContent = 'Merci ! On revient vers vous très vite.';
+`;
+const form = document.getElementById("demo-form");
+const okMsg = document.createElement("p");
+okMsg.className = "ok";
+okMsg.textContent = "Merci ! On revient vers vous très vite.";
 okMsg.hidden = true;
 form.after(okMsg);
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const res = await fetch(form.action, {
-    method: 'POST',
+    method: "POST",
     body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
+    headers: { Accept: "application/json" },
   });
-  if (res.ok) { form.reset(); okMsg.hidden = false; }
-  else { alert("Erreur d’envoi. Réessayez ou contactez-nous."); }
+  if (res.ok) {
+    form.reset();
+    okMsg.hidden = false;
+  } else {
+    alert("Erreur d’envoi. Réessayez ou contactez-nous.");
+  }
 });
-document.getElementById('y').textContent = new Date().getFullYear();
+document.getElementById("y").textContent = new Date().getFullYear();

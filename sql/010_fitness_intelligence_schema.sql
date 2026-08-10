@@ -25,12 +25,15 @@ CREATE EXTENSION IF NOT EXISTS unaccent;   -- normalisation noms/adresses
 -- ---------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION fitness_intel.trigger_set_updated_at()
-RETURNS TRIGGER AS $$
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SET search_path = fitness_intel, pg_catalog
+AS $$
 BEGIN
   NEW.updated_at = NOW();
   RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 -- Types de confiance / niveau de vérification, réutilisés sur toutes les
 -- données déduites ou collectées automatiquement.
@@ -213,7 +216,10 @@ CREATE TABLE fitness_intel.legal_entity_history (
 );
 
 CREATE OR REPLACE FUNCTION fitness_intel.track_legal_entity_history()
-RETURNS TRIGGER AS $$
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SET search_path = fitness_intel, pg_catalog
+AS $$
 BEGIN
   IF TG_OP = 'UPDATE' THEN
     IF OLD.statut IS DISTINCT FROM NEW.statut THEN
@@ -231,7 +237,7 @@ BEGIN
   END IF;
   RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 CREATE TRIGGER track_history BEFORE UPDATE ON fitness_intel.legal_entities
   FOR EACH ROW EXECUTE FUNCTION fitness_intel.track_legal_entity_history();

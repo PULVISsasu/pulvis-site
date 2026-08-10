@@ -19,7 +19,14 @@ RETURNS TABLE (
   same_phone BOOLEAN,
   same_postal_code BOOLEAN,
   address_similarity FLOAT
-) AS $$
+)
+LANGUAGE sql STABLE
+-- similarity() (pg_trgm) est installée dans le schéma `core` sur ce projet
+-- Supabase — search_path épinglé explicitement (voir advisory
+-- function_search_path_mutable) plutôt que de dépendre du search_path par
+-- défaut du rôle appelant.
+SET search_path = fitness_intel, core, pg_catalog
+AS $$
   SELECT
     a.id AS club_id_a,
     b.id AS club_id_b,
@@ -38,7 +45,7 @@ RETURNS TABLE (
     )
   ORDER BY similarity(a.name, b.name) DESC
   LIMIT max_pairs;
-$$ LANGUAGE sql STABLE;
+$$;
 
 COMMENT ON FUNCTION fitness_intel.find_club_duplicates IS 'Paires de clubs candidates à la fusion (entity resolution), non encore évaluées dans merge_candidates.';
 

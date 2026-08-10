@@ -61,8 +61,11 @@ PULVIS/
 ├── sql/                ← Migrations Supabase (numérotées)
 │   ├── 001_init.sql            # Schéma de base, RLS, vues fondamentales
 │   ├── …
-│   └── 009_v1_hardware.sql     # Modèle financier V1 final
+│   ├── 009_v1_hardware.sql     # Modèle financier V1 final
+│   └── 010…013_fitness_intelligence_*.sql  # Schéma fitness_intel, seeds, RPC
+├── fitness-intelligence/ ← App de prospection B2B fitness (Next.js) — voir son README
 ├── docs/               ← Specs, ADR, cahier des charges
+│   └── fitness-intelligence-architecture.md
 ├── hardware/           ← Firmware ESP32, schémas câblage
 ├── operations/         ← Procédures terrain (remplissage, maintenance)
 ├── finance/            ← Modèles P&L, projections

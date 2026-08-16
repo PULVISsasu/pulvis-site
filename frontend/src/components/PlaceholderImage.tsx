@@ -35,11 +35,6 @@ export default function PlaceholderImage({
       <div className="absolute inset-0 flex items-center justify-center">
         <Icon className="h-8 w-8 text-pulvis-gold/30" strokeWidth={1} />
       </div>
-      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
-        <span className="truncate rounded-full border border-white/10 bg-black/30 px-2.5 py-1 text-[10px] uppercase tracking-widest2 text-pulvis-muted backdrop-blur-sm">
-          Visuel — {label}
-        </span>
-      </div>
     </div>
   )
 }

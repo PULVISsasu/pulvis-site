@@ -2,9 +2,21 @@ import { type Fragrance } from '../data/fragrances'
 
 interface FragranceCardProps {
   fragrance: Fragrance
+  compact?: boolean
 }
 
-export default function FragranceCard({ fragrance }: FragranceCardProps) {
+export default function FragranceCard({ fragrance, compact = false }: FragranceCardProps) {
+  if (compact) {
+    return (
+      <div className="flex h-full flex-col gap-2 rounded-2xl border border-white/10 bg-pulvis-bg p-7">
+        <h3 className="font-serif text-2xl tracking-wide text-pulvis-cream sm:text-3xl">
+          {fragrance.name}
+        </h3>
+        <p className="text-sm text-pulvis-gold">{fragrance.signature}</p>
+      </div>
+    )
+  }
+
   return (
     <div className="flex h-full flex-col gap-5 rounded-2xl border border-white/10 bg-pulvis-bg p-7">
       <div className="flex flex-col gap-2">

@@ -5,11 +5,11 @@ import MobileMenu from './MobileMenu'
 
 export const navLinks = [
   { label: 'Accueil', to: '/' },
-  { label: 'Parfums', to: '/parfums' },
-  { label: 'Comment ça marche', to: '/comment-ca-marche' },
-  { label: 'Trouver PULVIS', to: '/trouver-pulvis' },
-  { label: 'Journal', to: '/journal' },
-  { label: 'Aide', to: '/aide' },
+  { label: 'Le concept', to: '/le-concept' },
+  { label: 'Pour les salles de sport', to: '/salles-de-sport' },
+  { label: 'La station', to: '/la-station' },
+  { label: 'Comment ça fonctionne', to: '/comment-ca-fonctionne' },
+  { label: 'FAQ', to: '/faq' },
 ]
 
 export default function Header() {
@@ -41,11 +41,12 @@ export default function Header() {
           PULVIS
         </NavLink>
 
-        <nav aria-label="Navigation principale" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Navigation principale" className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
+              end={link.to === '/'}
               className={({ isActive }) =>
                 `link-underline text-sm tracking-wide transition-colors duration-200 ${
                   isActive ? 'text-pulvis-gold' : 'text-pulvis-cream hover:text-pulvis-gold'
@@ -56,6 +57,15 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
+
+        <div className="hidden lg:block">
+          <NavLink
+            to="/devenir-partenaire"
+            className="inline-flex items-center justify-center rounded-full border border-pulvis-gold/60 px-5 py-2.5 text-sm font-medium text-pulvis-cream transition-colors duration-200 hover:border-pulvis-gold hover:bg-pulvis-gold/10"
+          >
+            Devenir partenaire
+          </NavLink>
+        </div>
 
         <button
           type="button"

@@ -7,18 +7,18 @@ const footerColumns = [
     links: navLinks,
   },
   {
-    title: 'Assistance',
+    title: 'Partenariat',
     links: [
+      { label: 'Devenir partenaire', to: '/devenir-partenaire' },
       { label: 'FAQ', to: '/faq' },
-      { label: 'Aide et assistance', to: '/aide' },
-      { label: 'Trouver PULVIS', to: '/trouver-pulvis' },
     ],
   },
   {
-    title: 'Entreprise',
+    title: 'Informations légales',
     links: [
-      { label: 'Professionnels', to: '/professionnels' },
       { label: 'Mentions légales', to: '/mentions-legales' },
+      { label: 'Politique de confidentialité', to: '/politique-de-confidentialite' },
+      { label: 'Gestion des cookies', to: '/cookies' },
     ],
   },
 ]
@@ -30,8 +30,8 @@ export default function Footer() {
         <div className="flex flex-col gap-4 lg:col-span-1">
           <span className="font-serif text-2xl tracking-widest2 text-pulvis-cream">PULVIS</span>
           <p className="max-w-xs text-sm leading-relaxed text-pulvis-muted">
-            Le parfum, au bon moment. Des stations de parfum en libre-service, installées dans vos
-            lieux préférés.
+            Des stations de parfum premium en libre-service, installées et exploitées par PULVIS
+            dans les salles de sport.
           </p>
         </div>
 

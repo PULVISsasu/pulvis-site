@@ -50,7 +50,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </button>
           </div>
 
-          <nav aria-label="Navigation mobile" className="container-pulvis mt-8 flex flex-1 flex-col gap-2">
+          <nav aria-label="Navigation mobile" className="container-pulvis mt-4 flex flex-1 flex-col gap-2 overflow-y-auto">
             {navLinks.map((link, i) => (
               <motion.div
                 key={link.to}
@@ -60,8 +60,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               >
                 <NavLink
                   to={link.to}
+                  end={link.to === '/'}
                   className={({ isActive }) =>
-                    `block border-b border-white/10 py-5 font-serif text-3xl transition-colors ${
+                    `block border-b border-white/10 py-4 font-serif text-2xl transition-colors sm:text-3xl ${
                       isActive ? 'text-pulvis-gold' : 'text-pulvis-cream'
                     }`
                   }
@@ -72,9 +73,12 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             ))}
           </nav>
 
-          <div className="container-pulvis mb-10 flex flex-col gap-3 text-sm text-pulvis-muted">
-            <NavLink to="/professionnels" className="link-underline w-fit">
-              Professionnels
+          <div className="container-pulvis mb-10 mt-4 flex flex-col gap-3">
+            <NavLink
+              to="/devenir-partenaire"
+              className="inline-flex items-center justify-center rounded-full bg-pulvis-gold px-6 py-3.5 text-sm font-medium text-pulvis-bg"
+            >
+              Devenir partenaire
             </NavLink>
           </div>
         </motion.div>

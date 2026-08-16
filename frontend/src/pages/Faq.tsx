@@ -3,15 +3,21 @@ import Accordion from '../components/Accordion'
 import ScrollReveal from '../components/ScrollReveal'
 import CTASection from '../components/CTASection'
 import { faqCategories } from '../data/faq'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Faq() {
+  usePageMeta(
+    'FAQ',
+    'Toutes les réponses aux questions des établissements sur le partenariat, l’exploitation et les parfums PULVIS.',
+  )
+
   return (
     <div>
       <div className="container-pulvis flex flex-col gap-12 py-16 sm:py-24">
         <SectionTitle
           eyebrow="Questions fréquentes"
           title="FAQ"
-          description="Tout ce qu'il faut savoir avant, pendant et après l'utilisation d'une station PULVIS."
+          description="Tout ce qu’il faut savoir avant de devenir établissement partenaire PULVIS."
         />
 
         <div className="flex flex-col gap-14">
@@ -25,10 +31,10 @@ export default function Faq() {
       </div>
 
       <CTASection
-        title="Vous ne trouvez pas votre réponse ?"
-        description="Notre équipe assistance reste disponible pour vous accompagner."
-        buttonLabel="Aide et assistance"
-        buttonTo="/aide"
+        title="Une question spécifique à votre établissement ?"
+        description="Contactez-nous directement, nous reviendrons vers vous rapidement."
+        buttonLabel="Devenir établissement partenaire"
+        buttonTo="/devenir-partenaire"
       />
     </div>
   )

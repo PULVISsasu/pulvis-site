@@ -10,30 +10,60 @@ export interface FaqCategory {
 
 export const faqCategories: FaqCategory[] = [
   {
-    title: 'Utilisation',
+    title: 'Partenariat & modèle économique',
     items: [
       {
-        question: 'Comment utiliser une station PULVIS ?',
+        question: 'Combien coûte l’installation pour mon établissement ?',
         answer:
-          'Choisissez votre parfum parmi les cinq fragrances proposées, payez 1 € sans contact directement sur la station, puis placez-vous devant la buse pour recevoir vos deux pulvérisations.',
+          'L’installation d’une station PULVIS ne nécessite aucun investissement financier direct de votre part. PULVIS prend en charge la station, sa mise en service, les parfums, le réapprovisionnement, la maintenance et la gestion des paiements.',
       },
       {
-        question: 'Combien coûte une utilisation ?',
-        answer: 'Chaque utilisation coûte 1 €, quel que soit le parfum choisi.',
-      },
-      {
-        question: 'Combien de pulvérisations vais-je recevoir ?',
-        answer: 'Chaque paiement donne droit à deux pulvérisations du parfum sélectionné.',
-      },
-      {
-        question: 'Quels moyens de paiement sont acceptés ?',
+        question: 'Mon établissement touche-t-il une commission sur les ventes ?',
         answer:
-          'Les stations PULVIS acceptent uniquement le paiement sans contact : carte bancaire, smartphone ou montre connectée.',
+          'PULVIS conserve l’intégralité des revenus générés par ses stations. En contrepartie, votre établissement bénéficie d’un nouveau service pour ses adhérents, d’une image premium et d’un élément différenciant, sans aucune gestion opérationnelle de votre part.',
       },
       {
-        question: 'Ai-je besoin d\'une application ?',
+        question: 'Comment devenir établissement partenaire ?',
         answer:
-          'Non. Aucune application ni aucun compte n\'est nécessaire pour utiliser une station PULVIS.',
+          'Il vous suffit de remplir le formulaire de contact. Notre équipe étudie votre établissement et revient vers vous pour évaluer la pertinence d’une installation PULVIS.',
+      },
+      {
+        question: 'Combien de temps dure l’installation ?',
+        answer:
+          'La durée dépend de la configuration de chaque établissement. Elle vous est précisée lors de l’étude de votre emplacement.',
+      },
+    ],
+  },
+  {
+    title: 'Exploitation & maintenance',
+    items: [
+      {
+        question: 'Qui s’occupe du réapprovisionnement ?',
+        answer:
+          'PULVIS. Nos équipes suivent les niveaux de stock et réapprovisionnent les stations, sans aucune action nécessaire de votre part.',
+      },
+      {
+        question: 'Qui entretient la station ?',
+        answer: 'PULVIS assure le suivi technique et la maintenance de chaque station installée.',
+      },
+      {
+        question: 'Qui gère les paiements ?',
+        answer:
+          'PULVIS gère l’intégralité des paiements réalisés sur les stations. Votre établissement n’a aucune caisse supplémentaire à gérer.',
+      },
+      {
+        question: 'Que se passe-t-il en cas de panne ?',
+        answer:
+          'PULVIS assure le suivi et la maintenance de ses stations. En cas d’incident, notre équipe intervient pour rétablir le service dans les meilleurs délais.',
+      },
+      {
+        question: 'Mon établissement doit-il gérer du stock ?',
+        answer: 'Non. PULVIS gère l’intégralité du réapprovisionnement des stations.',
+      },
+      {
+        question: 'Combien de place faut-il pour installer une station ?',
+        answer:
+          'L’espace nécessaire dépend de la configuration de votre établissement. Nos équipes évaluent l’emplacement le plus pertinent lors de l’étude préalable à l’installation.',
       },
     ],
   },
@@ -43,46 +73,12 @@ export const faqCategories: FaqCategory[] = [
       {
         question: 'Quels parfums sont disponibles ?',
         answer:
-          'PULVIS propose cinq fragrances : VITAL, NOVA, FORGE, AERO et ELIXIR, chacune avec un profil olfactif distinct.',
+          'Chaque station propose une sélection de parfums premium. Retrouvez un aperçu de la sélection actuelle sur la page dédiée aux parfums.',
       },
       {
-        question: 'Les parfums sont-ils prêts à l\'emploi ?',
-        answer: 'Oui, chaque fragrance est vaporisée directement, sans préparation ni dilution.',
-      },
-      {
-        question: 'Puis-je les appliquer sur mes vêtements ?',
+        question: 'Peut-on changer les parfums proposés ?',
         answer:
-          'Les fragrances PULVIS sont conçues pour une application sur la peau. Certains tissus peuvent réagir différemment aux parfums.',
-      },
-      {
-        question: 'Comment connaître les notes d\'un parfum ?',
-        answer:
-          'Chaque fiche parfum, accessible depuis la page Parfums, détaille les notes de tête, de cœur et de fond ainsi que le profil olfactif complet.',
-      },
-    ],
-  },
-  {
-    title: 'Paiement et assistance',
-    items: [
-      {
-        question: 'J\'ai été débité mais je n\'ai pas reçu de pulvérisation',
-        answer:
-          'Rendez-vous sur la page Aide et assistance pour signaler l\'incident avec le numéro de la station. Notre équipe examine chaque demande individuellement.',
-      },
-      {
-        question: 'La machine semble indisponible',
-        answer:
-          'Certaines stations peuvent être temporairement indisponibles pour maintenance ou réapprovisionnement. Consultez la page Trouver PULVIS pour vérifier l\'état des stations à proximité.',
-      },
-      {
-        question: 'Comment contacter PULVIS ?',
-        answer:
-          'Le formulaire de la page Aide et assistance permet de nous contacter directement pour toute question ou incident.',
-      },
-      {
-        question: 'Comment demander l\'examen d\'un paiement ?',
-        answer:
-          'Utilisez le formulaire d\'assistance en précisant la date, l\'heure et le numéro de la station concernée. Une réponse vous sera apportée après vérification.',
+          'La sélection peut évoluer dans le temps, selon la stratégie PULVIS et les usages observés sur chaque station.',
       },
     ],
   },

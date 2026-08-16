@@ -1,56 +1,88 @@
-import { CreditCard, ShieldCheck, Wifi, Wrench, Droplet, LifeBuoy } from 'lucide-react'
+import {
+  ArrowRight,
+  CreditCard,
+  Droplet,
+  Footprints,
+  MousePointerClick,
+  Radar,
+  RefreshCw,
+  ShieldCheck,
+  Sparkles,
+  Unlock,
+  Wrench,
+} from 'lucide-react'
+import Button from '../components/Button'
 import SectionTitle from '../components/SectionTitle'
 import ScrollReveal from '../components/ScrollReveal'
 import PlaceholderImage from '../components/PlaceholderImage'
 import CTASection from '../components/CTASection'
+import Badge from '../components/Badge'
+import { pulvisTakesCare, establishmentProvides } from '../data/rolesSplit'
 import { usePageMeta } from '../hooks/usePageMeta'
 
-const specs = [
-  { label: 'Nombre de parfums', value: '5 fragrances par station' },
-  { label: 'Terminal de paiement', value: 'Paiement sans contact — carte bancaire' },
+const journey = [
   {
-    label: 'Dimensions, alimentation, connectivité',
-    value: 'Informations techniques communiquées lors de l’étude de votre emplacement.',
+    number: '01',
+    icon: Droplet,
+    title: 'Choisir',
+    description: 'L’adhérent sélectionne la fragrance qu’il souhaite utiliser.',
+  },
+  {
+    number: '02',
+    icon: CreditCard,
+    title: 'Régler',
+    description: 'Le paiement sans contact s’effectue directement depuis la station.',
+  },
+  {
+    number: '03',
+    icon: Sparkles,
+    title: 'Utiliser',
+    description: 'L’adhérent accède à ses pulvérisations en quelques secondes.',
+  },
+  {
+    number: '04',
+    icon: Footprints,
+    title: 'Repartir',
+    description: 'Il poursuit sa journée avec la fragrance choisie.',
   },
 ]
 
-const pillars = [
+const experience = [
+  { icon: Droplet, label: '5 fragrances' },
+  { icon: MousePointerClick, label: 'Interface tactile' },
+  { icon: CreditCard, label: 'Paiement sans contact' },
+  { icon: Unlock, label: 'Libre-service' },
+  { icon: Radar, label: 'Supervision à distance' },
+  { icon: Wrench, label: 'Installation et maintenance PULVIS' },
+]
+
+const exploitation = [
   {
-    icon: Droplet,
-    title: 'Une sélection premium',
-    description: 'Cinq fragrances soigneusement sélectionnées, présentées directement sur la station.',
+    icon: Wrench,
+    title: 'Installation',
+    description: 'Chaque emplacement est étudié avant installation pour intégrer la station de manière cohérente.',
   },
   {
-    icon: CreditCard,
-    title: 'Paiement sans contact',
-    description: 'Carte bancaire, sans application ni compte à créer.',
+    icon: RefreshCw,
+    title: 'Réapprovisionnement',
+    description: 'PULVIS assure le suivi des stocks et le réapprovisionnement des fragrances.',
   },
   {
-    icon: Wifi,
-    title: 'Connectée',
-    description: 'Chaque station transmet ses événements à PULVIS pour un suivi à distance.',
+    icon: Radar,
+    title: 'Suivi',
+    description: 'PULVIS suit le fonctionnement de ses stations à distance pour assurer la continuité du service.',
   },
   {
     icon: ShieldCheck,
-    title: 'Sécurisée',
-    description: 'Les paiements et l’accès aux fragrances sont gérés de bout en bout par PULVIS.',
-  },
-  {
-    icon: Wrench,
-    title: 'Maintenue à distance et sur site',
-    description: 'Suivi technique continu, complété par des interventions terrain si nécessaire.',
-  },
-  {
-    icon: LifeBuoy,
-    title: 'Assistance PULVIS',
-    description: 'Une équipe dédiée au suivi de chaque station installée.',
+    title: 'Maintenance',
+    description: 'Nos équipes entretiennent chaque station installée dans la durée.',
   },
 ]
 
 export default function LaStation() {
   usePageMeta(
-    'La station',
-    'Découvrez la station PULVIS : sélection de parfums, paiement sans contact, technologie connectée et maintenance assurée.',
+    'PULVIS — La station de parfum en libre-service',
+    'Découvrez la Station PULVIS : une expérience parfumée en libre-service pensée pour les salles de sport et entièrement exploitée par PULVIS.',
   )
 
   return (
@@ -60,16 +92,21 @@ export default function LaStation() {
           <ScrollReveal className="flex flex-col gap-6">
             <span className="eyebrow">La station</span>
             <h1 className="max-w-xl font-serif text-4xl font-medium leading-tight text-pulvis-cream sm:text-5xl">
-              Une présence sobre, une technologie discrète.
+              L’expérience PULVIS, en libre-service.
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-pulvis-muted sm:text-lg">
-              La station PULVIS est conçue pour s’intégrer visuellement dans des établissements
-              modernes, tout en restant simple d’utilisation pour vos adhérents.
+              Une station pensée pour permettre aux adhérents d’accéder simplement à une
+              sélection de fragrances avant de poursuivre leur journée.
             </p>
+            <div className="pt-2">
+              <Button to="/devenir-partenaire" size="lg" icon={<ArrowRight className="h-4 w-4" />}>
+                Devenir établissement partenaire
+              </Button>
+            </div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <PlaceholderImage
-              label="Station PULVIS — vue d’ensemble"
+              label="Station PULVIS en libre-service"
               icon={Droplet}
               className="aspect-[4/3] w-full rounded-2xl"
             />
@@ -77,33 +114,74 @@ export default function LaStation() {
         </div>
       </section>
 
+      {/* 5 fragrances */}
       <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
+        <div className="container-pulvis flex flex-col gap-6">
+          <SectionTitle
+            eyebrow="La sélection"
+            title="5 fragrances. Un choix immédiat."
+            description="La Station PULVIS donne accès à une sélection de cinq fragrances directement depuis son interface. La sélection peut évoluer selon la stratégie PULVIS et les usages observés."
+          />
+          <ScrollReveal>
+            <Badge>2 pulvérisations — 1 €</Badge>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Parcours utilisateur */}
+      <section className="border-b border-white/10 py-16 sm:py-24">
         <div className="container-pulvis flex flex-col gap-12">
-          <SectionTitle eyebrow="Caractéristiques" title="Ce qu’il faut savoir sur la station" />
-          <div className="flex flex-col divide-y divide-white/10 rounded-2xl border border-white/10 bg-pulvis-bg">
-            {specs.map((spec) => (
-              <div key={spec.label} className="flex flex-col gap-1.5 p-6">
-                <span className="text-xs uppercase tracking-widest2 text-pulvis-gold">{spec.label}</span>
-                <span className="text-sm text-pulvis-cream sm:text-base">{spec.value}</span>
-              </div>
+          <SectionTitle eyebrow="Parcours utilisateur" title="Compris en quelques secondes." />
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {journey.map((step, i) => (
+              <ScrollReveal key={step.number} delay={i * 0.08}>
+                <div className="flex flex-col gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-pulvis-gold/30 text-pulvis-gold">
+                    <step.icon className="h-5 w-5" strokeWidth={1.4} />
+                  </div>
+                  <span className="text-xs uppercase tracking-widest2 text-pulvis-gold">
+                    {step.number}
+                  </span>
+                  <h3 className="font-serif text-xl text-pulvis-cream">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-pulvis-muted">{step.description}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Caractéristiques de l'expérience */}
+      <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
+        <div className="container-pulvis flex flex-col gap-12">
+          <SectionTitle eyebrow="En un coup d’œil" title="Caractéristiques de l’expérience" />
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
+            {experience.map((item, i) => (
+              <ScrollReveal key={item.label} delay={i * 0.05}>
+                <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-pulvis-bg px-4 py-8 text-center">
+                  <item.icon className="h-6 w-6 text-pulvis-gold" strokeWidth={1.4} />
+                  <span className="text-sm text-pulvis-cream">{item.label}</span>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Exploitation */}
       <section className="border-b border-white/10 py-16 sm:py-24">
         <div className="container-pulvis flex flex-col gap-12">
-          <SectionTitle eyebrow="Technologie" title="Pensée pour l’usage et pour la fiabilité." />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {pillars.map((pillar, i) => (
-              <ScrollReveal key={pillar.title} delay={i * 0.06}>
+          <SectionTitle eyebrow="Exploitation" title="PULVIS s’occupe de l’exploitation." />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {exploitation.map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 0.06}>
                 <div className="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-pulvis-bgLight p-6">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pulvis-gold/30 text-pulvis-gold">
-                    <pillar.icon className="h-5 w-5" strokeWidth={1.4} />
+                    <item.icon className="h-5 w-5" strokeWidth={1.4} />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <h3 className="font-serif text-xl text-pulvis-cream">{pillar.title}</h3>
-                    <p className="text-sm leading-relaxed text-pulvis-muted">{pillar.description}</p>
+                    <h3 className="font-serif text-xl text-pulvis-cream">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-pulvis-muted">{item.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -112,11 +190,74 @@ export default function LaStation() {
         </div>
       </section>
 
+      {/* Pour l'établissement */}
+      <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
+        <div className="container-pulvis flex flex-col gap-14">
+          <SectionTitle
+            eyebrow="Répartition des rôles"
+            title="Un nouveau service, sans nouvelle gestion quotidienne."
+            align="center"
+            className="mx-auto"
+          />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <ScrollReveal className="flex flex-col gap-5 rounded-2xl border border-pulvis-gold/30 bg-pulvis-bg p-8">
+              <span className="eyebrow">PULVIS prend en charge</span>
+              <ul className="flex flex-col gap-3">
+                {pulvisTakesCare.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-pulvis-cream sm:text-base">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-pulvis-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.08} className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-pulvis-bg p-8">
+              <span className="eyebrow">Votre établissement</span>
+              <ul className="flex flex-col gap-3">
+                {establishmentProvides.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-pulvis-cream sm:text-base">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full border border-pulvis-muted" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Pensée pour l'expérience adhérent */}
+      <section className="border-b border-white/10 py-16 sm:py-24">
+        <div className="container-pulvis grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          <ScrollReveal className="flex flex-col gap-6">
+            <span className="eyebrow">L’expérience adhérent</span>
+            <h2 className="font-serif text-3xl font-medium leading-tight text-pulvis-cream sm:text-4xl">
+              Pensée pour le moment d’après.
+            </h2>
+            <p className="text-base leading-relaxed text-pulvis-muted sm:text-lg">
+              Après une séance, certains adhérents repartent travailler, rejoignent un
+              rendez-vous ou poursuivent simplement leur journée. PULVIS leur permet d’ajouter
+              une touche parfumée avant de quitter le club.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <PlaceholderImage
+              label="Adhérent utilisant la Station PULVIS après sa séance"
+              icon={Sparkles}
+              className="aspect-[4/3] w-full rounded-2xl"
+            />
+          </ScrollReveal>
+        </div>
+      </section>
+
       <CTASection
-        title="Une station adaptée à votre établissement"
-        description="Chaque installation fait l’objet d’une étude préalable de l’emplacement le plus pertinent."
+        title="Et si PULVIS trouvait sa place dans votre établissement ?"
+        description="Nous étudions chaque emplacement avant installation."
         buttonLabel="Devenir établissement partenaire"
         buttonTo="/devenir-partenaire"
+        secondaryLabel="Découvrir le fonctionnement"
+        secondaryTo="/comment-ca-fonctionne"
       />
     </div>
   )

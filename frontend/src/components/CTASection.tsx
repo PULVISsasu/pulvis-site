@@ -7,9 +7,18 @@ interface CTASectionProps {
   description?: string
   buttonLabel: string
   buttonTo: string
+  secondaryLabel?: string
+  secondaryTo?: string
 }
 
-export default function CTASection({ title, description, buttonLabel, buttonTo }: CTASectionProps) {
+export default function CTASection({
+  title,
+  description,
+  buttonLabel,
+  buttonTo,
+  secondaryLabel,
+  secondaryTo,
+}: CTASectionProps) {
   return (
     <section className="border-t border-white/10 bg-pulvis-bgLight">
       <div className="container-pulvis flex flex-col items-center gap-6 py-20 text-center sm:py-28">
@@ -20,9 +29,16 @@ export default function CTASection({ title, description, buttonLabel, buttonTo }
           {description && (
             <p className="max-w-xl text-base text-pulvis-muted sm:text-lg">{description}</p>
           )}
-          <Button to={buttonTo} size="lg" icon={<ArrowRight className="h-4 w-4" />}>
-            {buttonLabel}
-          </Button>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button to={buttonTo} size="lg" icon={<ArrowRight className="h-4 w-4" />}>
+              {buttonLabel}
+            </Button>
+            {secondaryLabel && secondaryTo && (
+              <Button to={secondaryTo} variant="secondary" size="lg">
+                {secondaryLabel}
+              </Button>
+            )}
+          </div>
         </ScrollReveal>
       </div>
     </section>

@@ -9,6 +9,7 @@ import EligibilityCheck from '../components/EligibilityCheck'
 import { perfumes } from '../data/perfumes'
 import { benefits } from '../data/benefits'
 import { partnerSteps } from '../data/steps'
+import { pulvisTakesCare, establishmentProvides } from '../data/rolesSplit'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const userJourney = [
@@ -29,26 +30,9 @@ const userJourney = [
   },
 ]
 
-const pulvisTakesCare = [
-  'Installation',
-  'Configuration',
-  'Parfums',
-  'Réapprovisionnement',
-  'Maintenance',
-  'Paiements',
-  'Suivi',
-  'Assistance',
-]
-
-const establishmentProvides = [
-  'Accueille la station',
-  'Met à disposition un emplacement adapté',
-  'Permet à ses adhérents d’utiliser le service',
-]
-
 export default function Home() {
   usePageMeta(
-    'PULVIS — Le parfum devient un service',
+    'PULVIS — Station de parfum premium pour salles de sport',
     'PULVIS installe des stations de parfum premium en libre-service dans les salles de sport et prend en charge leur exploitation.',
   )
 
@@ -66,7 +50,7 @@ export default function Home() {
 
         <div className="container-pulvis relative z-10 flex flex-col gap-6 pb-16 pt-32 sm:pb-24">
           <span className="eyebrow animate-fadeUp" style={{ animationDelay: '0.05s' }}>
-            PULVIS
+            Stations de parfum en libre-service
           </span>
           <h1
             className="max-w-3xl animate-fadeUp font-serif text-5xl font-medium leading-[1.05] text-pulvis-cream opacity-0 sm:text-6xl lg:text-7xl"

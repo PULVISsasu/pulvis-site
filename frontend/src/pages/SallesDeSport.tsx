@@ -1,4 +1,4 @@
-import { ArrowRight, Dumbbell, ShieldCheck, Wrench } from 'lucide-react'
+import { ArrowRight, Dumbbell } from 'lucide-react'
 import Button from '../components/Button'
 import SectionTitle from '../components/SectionTitle'
 import ScrollReveal from '../components/ScrollReveal'
@@ -6,6 +6,8 @@ import PlaceholderImage from '../components/PlaceholderImage'
 import Accordion from '../components/Accordion'
 import CTASection from '../components/CTASection'
 import { benefits } from '../data/benefits'
+import { partnerSteps } from '../data/steps'
+import { pulvisTakesCare, establishmentProvides } from '../data/rolesSplit'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const journeySteps = [
@@ -27,9 +29,9 @@ const clubFaq = [
       'Non. Votre établissement accueille la station et met à disposition un emplacement adapté. PULVIS s’occupe du reste.',
   },
   {
-    question: 'Mon club touche-t-il un pourcentage sur les ventes ?',
+    question: 'Mon club reçoit-il une commission sur les ventes ?',
     answer:
-      'PULVIS conserve l’intégralité des revenus générés par ses stations. Votre établissement bénéficie en retour d’un nouveau service pour ses adhérents et d’une image premium, sans gestion opérationnelle.',
+      'Le modèle PULVIS ne prévoit actuellement aucune commission reversée à l’établissement. La station et son exploitation restent entièrement gérées par PULVIS. Votre club bénéficie en retour d’un nouveau service pour ses adhérents et d’une image premium, sans gestion opérationnelle.',
   },
 ]
 
@@ -93,10 +95,13 @@ export default function SallesDeSport() {
         </div>
       </section>
 
-      {/* Parcours adhérent */}
+      {/* Fonctionnement de la station */}
       <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
         <div className="container-pulvis flex flex-col gap-12">
-          <SectionTitle eyebrow="Parcours adhérent" title="De la séance à la sortie du club." />
+          <SectionTitle
+            eyebrow="Fonctionnement de la station"
+            title="De la séance à la sortie du club."
+          />
           <div className="flex flex-col gap-6">
             {journeySteps.map((step, i) => (
               <ScrollReveal key={step} delay={i * 0.06}>
@@ -135,29 +140,57 @@ export default function SallesDeSport() {
         </div>
       </section>
 
-      {/* Installation + gestion */}
+      {/* Ce que PULVIS prend en charge */}
       <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
-        <div className="container-pulvis grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <ScrollReveal className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-pulvis-bg p-8">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-pulvis-gold/30 text-pulvis-gold">
-              <Wrench className="h-5 w-5" strokeWidth={1.4} />
-            </div>
-            <h3 className="font-serif text-2xl text-pulvis-cream">Installation</h3>
-            <p className="text-sm leading-relaxed text-pulvis-muted sm:text-base">
-              PULVIS étudie l’emplacement le plus pertinent dans votre club, puis installe et met
-              en service la station.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.08} className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-pulvis-bg p-8">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-pulvis-gold/30 text-pulvis-gold">
-              <ShieldCheck className="h-5 w-5" strokeWidth={1.4} />
-            </div>
-            <h3 className="font-serif text-2xl text-pulvis-cream">Gestion PULVIS</h3>
-            <p className="text-sm leading-relaxed text-pulvis-muted sm:text-base">
-              Réapprovisionnement, maintenance, paiements et assistance : PULVIS suit chaque
-              station dans la durée, sans intervention de votre équipe.
-            </p>
-          </ScrollReveal>
+        <div className="container-pulvis flex flex-col gap-12">
+          <SectionTitle eyebrow="Répartition des rôles" title="Ce que PULVIS prend en charge." />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <ScrollReveal className="flex flex-col gap-5 rounded-2xl border border-pulvis-gold/30 bg-pulvis-bg p-8">
+              <span className="eyebrow">PULVIS prend en charge</span>
+              <ul className="flex flex-col gap-3">
+                {pulvisTakesCare.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-pulvis-cream sm:text-base">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-pulvis-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.08} className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-pulvis-bg p-8">
+              <span className="eyebrow">Votre club</span>
+              <ul className="flex flex-col gap-3">
+                {establishmentProvides.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-pulvis-cream sm:text-base">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full border border-pulvis-muted" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Parcours d'installation */}
+      <section className="border-b border-white/10 py-16 sm:py-24">
+        <div className="container-pulvis flex flex-col gap-12">
+          <SectionTitle
+            eyebrow="Parcours d’installation"
+            title="Simple, rapide, rassurant."
+            description="De l’échange initial à l’exploitation quotidienne de la station dans votre club."
+          />
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {partnerSteps.map((step, i) => (
+              <ScrollReveal key={step.number} delay={i * 0.08}>
+                <div className="flex flex-col gap-4">
+                  <span className="font-serif text-4xl text-pulvis-gold/60">{step.number}</span>
+                  <h3 className="font-serif text-xl text-pulvis-cream">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-pulvis-muted">{step.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

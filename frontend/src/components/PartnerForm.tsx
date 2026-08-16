@@ -89,20 +89,6 @@ export default function PartnerForm() {
           </select>
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="frequentation" className={labelClasses}>
-            Fréquentation approximative
-          </label>
-          <select id="frequentation" name="frequentation" className={inputClasses} defaultValue="">
-            <option value="" disabled>
-              Sélectionnez une tranche
-            </option>
-            <option value="< 100 visites / semaine">Moins de 100 visites / semaine</option>
-            <option value="100 – 300 visites / semaine">100 à 300 visites / semaine</option>
-            <option value="300 – 600 visites / semaine">300 à 600 visites / semaine</option>
-            <option value="> 600 visites / semaine">Plus de 600 visites / semaine</option>
-          </select>
-        </div>
-        <div className="flex flex-col gap-2">
           <label htmlFor="ville" className={labelClasses}>
             Ville
           </label>

@@ -8,9 +8,10 @@ import { usePageMeta } from '../hooks/usePageMeta'
 const specs = [
   { label: 'Nombre de parfums', value: '5 fragrances par station' },
   { label: 'Terminal de paiement', value: 'Paiement sans contact — carte bancaire' },
-  { label: 'Dimensions', value: 'Communiquées lors de l’étude de votre emplacement' },
-  { label: 'Alimentation', value: 'Secteur 220V' },
-  { label: 'Connectivité', value: 'Wi-Fi' },
+  {
+    label: 'Dimensions, alimentation, connectivité',
+    value: 'Informations techniques communiquées lors de l’étude de votre emplacement.',
+  },
 ]
 
 const pillars = [
@@ -79,7 +80,7 @@ export default function LaStation() {
       <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
         <div className="container-pulvis flex flex-col gap-12">
           <SectionTitle eyebrow="Caractéristiques" title="Ce qu’il faut savoir sur la station" />
-          <div className="grid grid-cols-1 divide-y divide-white/10 rounded-2xl border border-white/10 bg-pulvis-bg sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+          <div className="flex flex-col divide-y divide-white/10 rounded-2xl border border-white/10 bg-pulvis-bg">
             {specs.map((spec) => (
               <div key={spec.label} className="flex flex-col gap-1.5 p-6">
                 <span className="text-xs uppercase tracking-widest2 text-pulvis-gold">{spec.label}</span>

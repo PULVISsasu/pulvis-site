@@ -18,9 +18,9 @@ export const faqCategories: FaqCategory[] = [
           'L’installation d’une station PULVIS ne nécessite aucun investissement financier direct de votre part. PULVIS prend en charge la station, sa mise en service, les parfums, le réapprovisionnement, la maintenance et la gestion des paiements.',
       },
       {
-        question: 'Mon établissement touche-t-il une commission sur les ventes ?',
+        question: 'Mon établissement reçoit-il une commission sur les ventes ?',
         answer:
-          'PULVIS conserve l’intégralité des revenus générés par ses stations. En contrepartie, votre établissement bénéficie d’un nouveau service pour ses adhérents, d’une image premium et d’un élément différenciant, sans aucune gestion opérationnelle de votre part.',
+          'Le modèle PULVIS ne prévoit actuellement aucune commission reversée à l’établissement. La station et son exploitation restent entièrement gérées par PULVIS. Votre établissement bénéficie en retour d’un nouveau service pour ses adhérents et d’une image premium, sans aucune gestion opérationnelle de votre part.',
       },
       {
         question: 'Comment devenir établissement partenaire ?',

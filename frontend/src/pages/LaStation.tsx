@@ -18,6 +18,7 @@ import PlaceholderImage from '../components/PlaceholderImage'
 import CTASection from '../components/CTASection'
 import Badge from '../components/Badge'
 import FragranceCard from '../components/FragranceCard'
+import FragranceGallery from '../components/FragranceGallery'
 import { pulvisTakesCare, establishmentProvides } from '../data/rolesSplit'
 import { fragrances } from '../data/fragrances'
 import { usePageMeta } from '../hooks/usePageMeta'
@@ -137,6 +138,20 @@ export default function LaStation() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Découvrir les 5 signatures PULVIS */}
+      <section className="border-b border-white/10 py-16 sm:py-24">
+        <div className="container-pulvis flex flex-col gap-12">
+          <SectionTitle
+            eyebrow="La Sélection PULVIS"
+            title="Découvrir les 5 signatures PULVIS"
+            description="Cinq signatures pensées pour offrir un choix simple, élégant et immédiatement identifiable."
+          />
+          <ScrollReveal>
+            <FragranceGallery fragrances={fragrances} />
+          </ScrollReveal>
         </div>
       </section>
 

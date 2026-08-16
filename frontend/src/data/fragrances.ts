@@ -9,6 +9,7 @@ export interface Fragrance {
   signature: string
   description: string
   notes: FragranceNote[]
+  image: string
 }
 
 export const fragrances: Fragrance[] = [
@@ -23,6 +24,7 @@ export const fragrances: Fragrance[] = [
       { label: 'Fruits pétillants', descriptor: 'Fraîcheur juteuse et joyeuse.' },
       { label: 'Musc doux', descriptor: 'Sillage doux et réconfortant.' },
     ],
+    image: '/images/fragrances/vital.webp',
   },
   {
     slug: 'nova',
@@ -35,6 +37,7 @@ export const fragrances: Fragrance[] = [
       { label: 'Épices douces', descriptor: 'Chaleur réconfortante et raffinée.' },
       { label: 'Ambre lumineux', descriptor: 'Sillage enveloppant et inoubliable.' },
     ],
+    image: '/images/fragrances/nova.webp',
   },
   {
     slug: 'forge',
@@ -47,6 +50,7 @@ export const fragrances: Fragrance[] = [
       { label: 'Boisé', descriptor: 'Profondeur boisée et résineuse.' },
       { label: 'Épicé', descriptor: 'Touche épicée et vibrante.' },
     ],
+    image: '/images/fragrances/forge.webp',
   },
   {
     slug: 'aero',
@@ -59,6 +63,7 @@ export const fragrances: Fragrance[] = [
       { label: 'Marine', descriptor: 'Accord aquatique et vivifiant.' },
       { label: 'Musqué', descriptor: 'Sillage propre et élégant.' },
     ],
+    image: '/images/fragrances/aero.webp',
   },
   {
     slug: 'elixir',
@@ -71,5 +76,6 @@ export const fragrances: Fragrance[] = [
       { label: 'Ambre', descriptor: 'Chaleur sensuelle et enveloppante.' },
       { label: 'Bois ambrés', descriptor: 'Puissance boisée et mystérieuse.' },
     ],
+    image: '/images/fragrances/elixir.webp',
   },
 ]

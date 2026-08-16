@@ -17,7 +17,9 @@ import ScrollReveal from '../components/ScrollReveal'
 import PlaceholderImage from '../components/PlaceholderImage'
 import CTASection from '../components/CTASection'
 import Badge from '../components/Badge'
+import FragranceCard from '../components/FragranceCard'
 import { pulvisTakesCare, establishmentProvides } from '../data/rolesSplit'
+import { fragrances } from '../data/fragrances'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const journey = [
@@ -114,17 +116,27 @@ export default function LaStation() {
         </div>
       </section>
 
-      {/* 5 fragrances */}
+      {/* La Sélection PULVIS */}
       <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
-        <div className="container-pulvis flex flex-col gap-6">
-          <SectionTitle
-            eyebrow="La sélection"
-            title="5 fragrances. Un choix immédiat."
-            description="La Station PULVIS donne accès à une sélection de cinq fragrances directement depuis son interface. La sélection peut évoluer selon la stratégie PULVIS et les usages observés."
-          />
-          <ScrollReveal>
-            <Badge>2 pulvérisations — 1 €</Badge>
-          </ScrollReveal>
+        <div className="container-pulvis flex flex-col gap-12">
+          <div className="flex flex-col gap-6">
+            <SectionTitle
+              eyebrow="La Sélection PULVIS"
+              title="Cinq fragrances. Une sélection pensée pour l’instant d’après."
+              description="Pour la première installation, la station PULVIS donne accès à une sélection de cinq fragrances. Chaque signature a été pensée pour proposer un choix simple, élégant et immédiatement identifiable."
+            />
+            <ScrollReveal>
+              <Badge>2 pulvérisations — 1 €</Badge>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {fragrances.map((fragrance, i) => (
+              <ScrollReveal key={fragrance.slug} delay={(i % 3) * 0.08}>
+                <FragranceCard fragrance={fragrance} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

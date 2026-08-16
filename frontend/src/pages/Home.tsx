@@ -3,10 +3,10 @@ import Button from '../components/Button'
 import SectionTitle from '../components/SectionTitle'
 import ScrollReveal from '../components/ScrollReveal'
 import PlaceholderImage from '../components/PlaceholderImage'
-import PerfumeCard from '../components/PerfumeCard'
+import FragranceCard from '../components/FragranceCard'
 import CTASection from '../components/CTASection'
 import EligibilityCheck from '../components/EligibilityCheck'
-import { perfumes } from '../data/perfumes'
+import { fragrances } from '../data/fragrances'
 import { benefits } from '../data/benefits'
 import { partnerSteps } from '../data/steps'
 import { pulvisTakesCare, establishmentProvides } from '../data/rolesSplit'
@@ -236,15 +236,15 @@ export default function Home() {
       <section className="border-b border-white/10 bg-pulvis-bgLight py-20 sm:py-28">
         <div className="container-pulvis flex flex-col gap-12">
           <SectionTitle
-            eyebrow="La sélection"
-            title="Des parfums premium, pensés pour l’expérience."
+            eyebrow="La Sélection PULVIS"
+            title="Des fragrances premium, pensées pour l’expérience."
             description="Un aperçu de la sélection proposée sur les stations PULVIS."
           />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {perfumes.slice(0, 3).map((perfume, i) => (
-              <ScrollReveal key={perfume.slug} delay={(i % 3) * 0.08}>
-                <PerfumeCard perfume={perfume} />
+            {fragrances.slice(0, 3).map((fragrance, i) => (
+              <ScrollReveal key={fragrance.slug} delay={(i % 3) * 0.08}>
+                <FragranceCard fragrance={fragrance} />
               </ScrollReveal>
             ))}
           </div>

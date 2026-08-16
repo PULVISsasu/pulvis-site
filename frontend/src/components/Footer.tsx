@@ -52,9 +52,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-pulvis flex flex-col-reverse items-center justify-between gap-4 py-6 text-xs text-pulvis-muted sm:flex-row">
+        <div className="container-pulvis flex items-center justify-center py-6 text-xs text-pulvis-muted">
           <span>© {new Date().getFullYear()} PULVIS. Tous droits réservés.</span>
-          <span className="text-center">Maquette de démonstration — contenus et données fictifs.</span>
         </div>
       </div>
     </footer>

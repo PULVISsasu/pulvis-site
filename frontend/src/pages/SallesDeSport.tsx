@@ -28,11 +28,6 @@ const clubFaq = [
     answer:
       'Non. Votre établissement accueille la station et met à disposition un emplacement adapté. PULVIS s’occupe du reste.',
   },
-  {
-    question: 'Mon club reçoit-il une commission sur les ventes ?',
-    answer:
-      'Le modèle PULVIS ne prévoit actuellement aucune commission reversée à l’établissement. La station et son exploitation restent entièrement gérées par PULVIS. Votre club bénéficie en retour d’un nouveau service pour ses adhérents et d’une image premium, sans gestion opérationnelle.',
-  },
 ]
 
 export default function SallesDeSport() {
@@ -174,23 +169,30 @@ export default function SallesDeSport() {
 
       {/* Parcours d'installation */}
       <section className="border-b border-white/10 py-16 sm:py-24">
-        <div className="container-pulvis flex flex-col gap-12">
+        <div className="container-pulvis flex flex-col gap-10">
           <SectionTitle
             eyebrow="Parcours d’installation"
             title="Simple, rapide, rassurant."
             description="De l’échange initial à l’exploitation quotidienne de la station dans votre club."
           />
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {partnerSteps.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.08}>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                   <span className="font-serif text-4xl text-pulvis-gold/60">{step.number}</span>
                   <h3 className="font-serif text-xl text-pulvis-cream">{step.title}</h3>
-                  <p className="text-sm leading-relaxed text-pulvis-muted">{step.description}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
+          <Button
+            to="/comment-ca-fonctionne"
+            variant="ghost"
+            icon={<ArrowRight className="h-4 w-4" />}
+            className="w-fit"
+          >
+            Voir le détail
+          </Button>
         </div>
       </section>
 
@@ -202,11 +204,40 @@ export default function SallesDeSport() {
         </div>
       </section>
 
+      {/* Transition vers les pages explicatives */}
+      <section className="border-b border-white/10 bg-pulvis-bgLight py-16 sm:py-24">
+        <div className="container-pulvis flex flex-col items-center gap-6 text-center">
+          <ScrollReveal className="flex flex-col items-center gap-6">
+            <h2 className="max-w-xl font-serif text-2xl font-medium leading-tight text-pulvis-cream sm:text-3xl">
+              Vous souhaitez découvrir le service plus en détail ?
+            </h2>
+            <p className="max-w-lg text-base leading-relaxed text-pulvis-muted sm:text-lg">
+              Découvrez la Station PULVIS et son fonctionnement avant d’étudier son installation
+              dans votre établissement.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button to="/la-station" variant="secondary" icon={<ArrowRight className="h-4 w-4" />}>
+                Découvrir la station
+              </Button>
+              <Button
+                to="/comment-ca-fonctionne"
+                variant="secondary"
+                icon={<ArrowRight className="h-4 w-4" />}
+              >
+                Voir comment ça fonctionne
+              </Button>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <CTASection
         title="Offrez ce service à vos adhérents."
         description="Étudions ensemble la pertinence d’une installation PULVIS dans votre club."
         buttonLabel="Devenir établissement partenaire"
         buttonTo="/devenir-partenaire"
+        secondaryLabel="Découvrir le fonctionnement"
+        secondaryTo="/comment-ca-fonctionne"
       />
     </div>
   )

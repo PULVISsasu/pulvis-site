@@ -1,4 +1,5 @@
 import { useDashboard }        from './hooks/useDashboard'
+import { useAuth }             from './hooks/useAuth'
 import { isSupabaseConfigured } from './lib/supabase'
 import KPICard              from './components/KPICard'
 import KPIBadge             from './components/KPIBadge'
@@ -8,6 +9,8 @@ import SimulationBadge      from './components/SimulationBadge'
 import PLCard               from './components/PLCard'
 import ScenarioTable        from './components/ScenarioTable'
 import NetworkProjectionTable from './components/NetworkProjectionTable'
+import LoginScreen          from './components/LoginScreen'
+import AccessDeniedScreen   from './components/AccessDeniedScreen'
 import type { MachineProfitability, TopPerfume } from './types/pulvis'
 
 // ---------------------------------------------------------------------------
@@ -92,10 +95,37 @@ function TopPerfumeDisplay({ perfume }: { perfume: TopPerfume | null }) {
 
 export default function App() {
   if (!isSupabaseConfigured) return <SetupScreen />
-  return <Dashboard />
+
+  const { status, session, error, signIn, signOut } = useAuth()
+
+  // Aucun rendu du dashboard tant que la session n'est pas résolue (login,
+  // refresh de token, ou vérification is_admin()) — jamais de "authenticated"
+  // considéré suffisant à lui seul.
+  switch (status) {
+    case 'loading':
+    case 'checking_admin':
+      return <LoadingScreen />
+
+    case 'signed_out':
+      return <LoginScreen onSignIn={signIn} />
+
+    case 'forbidden':
+      return <AccessDeniedScreen email={session?.user.email} onSignOut={signOut} />
+
+    case 'error':
+      return (
+        <ErrorScreen
+          message={error ?? 'Erreur d\'authentification inconnue'}
+          onRetry={() => window.location.reload()}
+        />
+      )
+
+    case 'authorized':
+      return <Dashboard onSignOut={signOut} />
+  }
 }
 
-function Dashboard() {
+function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const {
     machines, overview, scenarios, companyCosts,
     topPerfumes, alerts, bestStatus,
@@ -139,6 +169,11 @@ function Dashboard() {
           <button onClick={refresh} title="Actualiser"
             className="p-1.5 text-gray-700 hover:text-gray-300 hover:bg-gray-800 rounded-lg transition-colors text-sm">
             ↻
+          </button>
+          <button onClick={onSignOut} title="Déconnexion"
+            className="px-2.5 py-1.5 text-[11px] text-gray-600 hover:text-gray-300 hover:bg-gray-800
+              rounded-lg transition-colors">
+            Déconnexion
           </button>
         </div>
       </header>
